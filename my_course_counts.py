@@ -7,6 +7,39 @@ app = Flask(__name__)
 
 # FIXME write your app below
 # https://course-counts.herokuapp.com/ <-- heroku webb app
+# Need a code to read in file
+
+# Need @app.route links that separate counts '/professor'
+# Need @app.route links that separate counts by '/major'
+# HTML links to Oxy professor page
+
+
+class Courses:
+    def __init__(self, year, season, department, number, section, title, units, instructors, meetings, core, seats, enrolled, reserved, reserved_open, waitlisted):
+        self.year = year
+        self.season = season
+        self.department = department
+        self.number = number
+        self.section = section
+        self.title = title
+        self.unit = units
+        self.instructors = instructors
+        self.meetings = meetings
+        self.core = core
+        self.seats = seats
+        self.enrolled = enrolled
+        self.reserved = reserved
+        self.reserved_open = reserved_open
+        self.waitlisted = waitlisted
+
+
+def get_data():
+    course_info = []
+    with open('counts.tsv') as file:
+        for line in file.read().splitlines():
+            year, season, department, number, section, title, units, instructors, meetings, core, seats, enrolled, reserved, reserved_open, waitlisted = line.split('\t')
+            course_info.append(Courses(year, season, department, number, section, title, units, instructors, meetings, core, seats, enrolled, reserved, reserved_open, waitlisted))
+        return course_info
 
 
 @app.route('/')
