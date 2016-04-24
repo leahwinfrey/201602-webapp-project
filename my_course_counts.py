@@ -5,7 +5,6 @@ from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__)
 
-# FIXME write your app below
 # https://course-counts.herokuapp.com/ <-- heroku webb app
 
 DEPART_ABBREV = {
@@ -119,6 +118,12 @@ YEAR_ABBREV = {
     '2016': '2016',
     '2017': '2017'}
 
+SEASONS = {
+    'spring': 'spring',
+    'fall': 'fall',
+    'summer': 'summer'
+}
+
 
 class Course:
     def __init__(self, year, season, department, number, section, title, units, instructors, meetings, core, seats, \
@@ -183,6 +188,21 @@ def view_core():
         listcore.append((key, value))
     return render_template('core.html', core=sorted(listcore))
 
+
+""" #Core classes aren't listed in TSV file
+@app.route('/core/<abbrevcore>')
+def view_core2(abbrevcore):
+    allcourses2 = get_data()
+    length = len(allcourses2)
+    offered = []
+    for x in range(0, length):
+        current = allcourses2[x]
+        if current.core == abbrevcore:
+            offered.append(current)
+    return render_template('coreclasses.html', abrevcore=offered, core=CORE_ABBREV[abbrevcore])
+"""
+
+
 @app.route('/year')
 def view_year():
     listyear = []
@@ -202,53 +222,22 @@ def view_year2(specyear):
             yearclass.append(current)
     return render_template('specyear.html', specyear=yearclass, years=YEAR_ABBREV[specyear])
 
-"""
 
+@app.route('/year/<specyear>/<semester>')
+def view_year3(specyear, semester):
     allcourses = get_data()
     length = len(allcourses)
-    tenyear = []
-    eleven = []
-    twelve = []
-    thirteen = []
-    fourteen = []
-    fifteen = []
-    sixteen = []
-    seventeen = []
+    yearsem = []
     for x in range(0, length):
         current = allcourses[x]
-        if current.year == '2010':
-            tenyear.append(current)
-        elif current.year == '2011':
-            eleven.append(current)
-        elif current.year == '2012':
-            twelve.append(current)
-        elif current.year == '2013':
-            thirteen.append(current)
-        elif current.year == '2014':
-            fourteen.append(current)
-        elif current.year == '2015':
-            fifteen.append(current)
-        elif current.year == '2016':
-            sixteen.append(current)
-        elif current.year == '2017':
-            seventeen.append(current)
-    return render_template('years.html', )
-
-"""
+        if current.year == specyear and current.season == semester:
+            yearsem.append(current)
+    return render_template('semester.html', cursem=yearsem, years=YEAR_ABBREV[specyear], season=SEASONS[semester])
 
 
-""" #Core classes aren't listed in TSV file
-@app.route('/core/<abbrevcore>')
-def view_core2(abbrevcore):
-    allcourses2 = get_data()
-    length = len(allcourses2)
-    offered = []
-    for x in range(0, length):
-        current = allcourses2[x]
-        if current.core == abbrevcore:
-            offered.append(current)
-    return render_template('coreclasses.html', abrevcore=offered, core=CORE_ABBREV[abbrevcore])
-"""
+
+
+
 
 
 # The functions below lets you access files in the css, js, and images folders.
