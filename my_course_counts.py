@@ -159,7 +159,7 @@ def get_data():
 
 @app.route('/')
 def view_homepage():
-    return render_template('base.html')
+    return render_template('base2.html')
 # this will be a list of links where they can click to sort by departments or core or time
 
 @app.route('/department')
@@ -167,7 +167,7 @@ def view_alldepartment():
     listmajor = []
     for key, value in DEPART_ABBREV.items():
         listmajor.append((key, value))
-    return render_template('department.html', departments=sorted(listmajor))
+    return render_template('department2.html', departments=sorted(listmajor))
 
 
 @app.route('/department/<abbrev>')
@@ -208,7 +208,7 @@ def view_year():
     listyear = []
     for key,value in YEAR_ABBREV.items():
         listyear.append((key, value))
-    return render_template('years.html', year=sorted(listyear))
+    return render_template('year2.html', year=sorted(listyear))
 
 
 @app.route('/year/<specyear>')
