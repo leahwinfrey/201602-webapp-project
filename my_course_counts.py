@@ -7,14 +7,8 @@ app = Flask(__name__)
 
 # FIXME write your app below
 # https://course-counts.herokuapp.com/ <-- heroku webb app
-# Need a code to read in file
 
-# Need @app.route links that separate counts '/professor'
-# Need @app.route links that separate counts by '/major'
-# HTML links to Oxy professor page
-
-
-ABBREV = {
+DEPART_ABBREV = {
     'AMST': 'American Studies',
     'ARAB': 'Arabic',
     'ARTH': 'Art/History',
@@ -98,6 +92,34 @@ ABBREV = {
     'UEP': 'Urban and Environmental Policy',
     'WRD': 'Writing and Rhetoric'}
 
+CORE_ABBREV = {
+    'CPAF': 'Core Africa & The Middle East',
+    'CPAS': 'Core Central/South/East Asia',
+    'CPEU': 'Core Europe',
+    'CPFA': 'Core Fine Arts',
+    'CFAP': 'Core Fine Arts Partial',
+    'CPGC': 'Core Global Connections',
+    'CPIC': 'Core Intercultural',
+    'CPLS': 'Core Labratory Science',
+    'CPLA': 'Core Latin America',
+    'CMSP': 'Core Mathematics/Science Partial',
+    'CPMS': 'Core Mathematics/Science',
+    'CPPE': 'Core Pre-1800',
+    'CPRF': 'Core Regional Focus',
+    'CPUS': 'Core United States',
+    'CPUD': 'Core United States Partial'}
+
+YEAR_ABBREV = {
+    '2010': '2010',
+    '2011': '2011',
+    '2012': '2012',
+    '2013': '2013',
+    '2014': '2014',
+    '2015': '2015',
+    '2016': '2016',
+    '2017': '2017'}
+
+
 class Course:
     def __init__(self, year, season, department, number, section, title, units, instructors, meetings, core, seats, \
                  enrolled, reserved, reserved_open, waitlisted):
@@ -131,14 +153,19 @@ def get_data():
 
 
 @app.route('/')
+def view_homepage():
+    return render_template('base.html')
+# this will be a list of links where they can click to sort by departments or core or time
+
+@app.route('/department')
 def view_alldepartment():
     listmajor = []
-    for key, value in ABBREV.items():
-        listmajor.append( (key, value) )
-    return render_template('directformat.html', departments=listmajor)
+    for key, value in DEPART_ABBREV.items():
+        listmajor.append((key, value))
+    return render_template('department.html', departments=sorted(listmajor))
 
 
-@app.route('/<abbrev>')
+@app.route('/department/<abbrev>')
 def view_department(abbrev):
     allcourses = get_data()
     length = len(allcourses)
@@ -146,41 +173,83 @@ def view_department(abbrev):
     for x in range(0, length):
         current = allcourses[x]
         if current.department == abbrev:
-
             offeredclasses.append(current)
-    return render_template('classes.html', abbrev=offeredclasses, department=ABBREV[abbrev])
-
-
-"""
-@app.route('/season')
-def view_season():
-    listseason = get_data()
-    return render_template('terms.html', courseinfo=listseason)
-
-
-@app.route('/department/<depart:'')
-def view_department(depart):
-    departlist = get_data()
-    length = len(departlist)
-    for x in range(0, length):
-        if departlist[x].department == depart:
-            curdepart = departlist[x]
-            index = x
-    return render_template('department2.html', depart=curdepart)
+    return render_template('classes.html', abbrev=offeredclasses, department=DEPART_ABBREV[abbrev])
 
 @app.route('/core')
 def view_core():
-    return render_template('core.html')
+    listcore = []
+    for key,value in CORE_ABBREV.items():
+        listcore.append((key, value))
+    return render_template('core.html', core=sorted(listcore))
 
-@app.route('/all')
-def view_all():
-    course = get_data()
-    return render_template('all.html', course_info=course)
+@app.route('/year')
+def view_year():
+    listyear = []
+    for key,value in YEAR_ABBREV.items():
+        listyear.append((key, value))
+    return render_template('years.html', year=sorted(listyear))
 
-@app.route('/actual')
-def view_actual():
-    return render_template('website.html')
+
+@app.route('/year/<specyear>')
+def view_year2(specyear):
+    allcourses = get_data()
+    length = len(allcourses)
+    yearclass = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == specyear:
+            yearclass.append(current)
+    return render_template('specyear.html', specyear=yearclass, years=YEAR_ABBREV[specyear])
+
 """
+
+    allcourses = get_data()
+    length = len(allcourses)
+    tenyear = []
+    eleven = []
+    twelve = []
+    thirteen = []
+    fourteen = []
+    fifteen = []
+    sixteen = []
+    seventeen = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == '2010':
+            tenyear.append(current)
+        elif current.year == '2011':
+            eleven.append(current)
+        elif current.year == '2012':
+            twelve.append(current)
+        elif current.year == '2013':
+            thirteen.append(current)
+        elif current.year == '2014':
+            fourteen.append(current)
+        elif current.year == '2015':
+            fifteen.append(current)
+        elif current.year == '2016':
+            sixteen.append(current)
+        elif current.year == '2017':
+            seventeen.append(current)
+    return render_template('years.html', )
+
+"""
+
+
+""" #Core classes aren't listed in TSV file
+@app.route('/core/<abbrevcore>')
+def view_core2(abbrevcore):
+    allcourses2 = get_data()
+    length = len(allcourses2)
+    offered = []
+    for x in range(0, length):
+        current = allcourses2[x]
+        if current.core == abbrevcore:
+            offered.append(current)
+    return render_template('coreclasses.html', abrevcore=offered, core=CORE_ABBREV[abbrevcore])
+"""
+
 
 # The functions below lets you access files in the css, js, and images folders.
 # You should not change them unless you know what you are doing.
