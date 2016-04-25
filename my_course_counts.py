@@ -167,7 +167,8 @@ def view_alldepartment():
     listmajor = []
     for key, value in DEPART_ABBREV.items():
         listmajor.append((key, value))
-    return render_template('department2.html', departments=sorted(listmajor))
+    listmajor.sort(key=lambda x: x[1])
+    return render_template('department2.html', departments=listmajor)
 
 
 @app.route('/department/<abbrev>')
@@ -181,6 +182,7 @@ def view_department(abbrev):
             offeredclasses.append(current)
     return render_template('classes.html', abbrev=offeredclasses, department=DEPART_ABBREV[abbrev])
 
+""" #Core classes aren't listed in TSV file
 @app.route('/core')
 def view_core():
     listcore = []
@@ -188,8 +190,6 @@ def view_core():
         listcore.append((key, value))
     return render_template('core.html', core=sorted(listcore))
 
-
-""" #Core classes aren't listed in TSV file
 @app.route('/core/<abbrevcore>')
 def view_core2(abbrevcore):
     allcourses2 = get_data()
@@ -234,9 +234,16 @@ def view_year3(specyear, semester):
             yearsem.append(current)
     return render_template('semester.html', cursem=yearsem, years=YEAR_ABBREV[specyear], season=SEASONS[semester])
 
-
-
-
+@app.route('/year/<specyear>/all')
+def view_year4(specyear):
+    allcourses = get_data()
+    length = len(allcourses)
+    allyear = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == specyear:
+            allyear.append(current)
+    return render_template('allyear.html', cursem=allyear, years=YEAR_ABBREV[specyear])
 
 
 
