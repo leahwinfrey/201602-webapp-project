@@ -18,7 +18,7 @@ DEPART_ABBREV = {
     'CHEM': 'Chemistry',
     'CHIN': 'Chinese',
     'COGS': 'Cognitive Science',
-    'CSLC': 'Comparative Studies/Lit &amp; Cult',
+    'CSLC': 'Comparative Studies/Lit & Culture',
     'COMP': 'Computer Science',
     'CTSJ': 'Critical Theory/Social Justice',
     'CSP': 'Cultural Studies Program',
@@ -159,7 +159,7 @@ def get_data():
 
 @app.route('/')
 def view_homepage():
-    return render_template('base2.html')
+    return render_template('base3.html')
 # this will be a list of links where they can click to sort by departments or core or time
 
 @app.route('/department')
@@ -168,7 +168,7 @@ def view_alldepartment():
     for key, value in DEPART_ABBREV.items():
         listmajor.append((key, value))
     listmajor.sort(key=lambda x: x[1])
-    return render_template('department2.html', departments=listmajor)
+    return render_template('department3.html', departments=listmajor)
 
 
 @app.route('/department/<abbrev>')
@@ -208,7 +208,7 @@ def view_year():
     listyear = []
     for key,value in YEAR_ABBREV.items():
         listyear.append((key, value))
-    return render_template('year2.html', year=sorted(listyear))
+    return render_template('year3.html', year=sorted(listyear))
 
 
 @app.route('/year/<specyear>')
@@ -220,7 +220,7 @@ def view_year2(specyear):
         current = allcourses[x]
         if current.year == specyear:
             yearclass.append(current)
-    return render_template('specyear.html', specyear=yearclass, years=YEAR_ABBREV[specyear])
+    return render_template('specyear3.html', specyear=yearclass, years=YEAR_ABBREV[specyear])
 
 
 @app.route('/year/<specyear>/<semester>')
