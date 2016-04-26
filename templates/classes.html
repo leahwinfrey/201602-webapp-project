@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ department }}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<style>
+    p {text-transform: capitalize;
+    font-size: 150%
+    }
+
+table, th, td {border: 1px solid black;
+    text-transform: capitalize;
+    border-collapse: collapse;}
+    th, td {padding: 5px;}</style>
+<body>
+<center>You are looking at classes in the <p>
+    {{department}} Department</p>
+<table style="width:100%">
+  <tr>
+      <th width="10%">Year & Semester Offered</th>
+      <th width="28%">Title</th>
+      <th width="9%">Course</th>
+      <th width="7%">Section</th>
+      <th width="20%">Professor</th>
+      <th>Meeting Times</th>
+  </tr>
+    {%for class in abbrev %}
+    <tr>
+        <td><center>{{class.year}} {{class.season}} </center></td>
+        <td>{{class.title}}</td>
+        <td><center>{{class.department}} {{class.number}}</center></td>
+        <td><center>{{class.section}}</center></td>
+        <td><center>{{class.instructors}}</center></td>
+        <td><center>{{class.meetings}}</center></td>
+        {% endfor %}</tr></table>
+</body>

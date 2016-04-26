@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ core }}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>{% for course in abbrevcore %}
+    <p>Year: {{ course.year }}</p>
+    <p>Season: {{ course.season }}</p>
+    <p>Professors: {{ courese.instructors }}</p>
+    <p>Section: {{course.section}}</p>
+    <p>Title: {{course.title}}</p>
+    {% endfor %}
+
+</body>
+</html>

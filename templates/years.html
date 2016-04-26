@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Course Counts</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/main.js"></script>
+</head>
+<body>
+<img src="/images/oxy-seal.png" style="width:150px; height:150px;">
+    <center>
+    <td>
+        <span style="color:#ff8800">Occidental</span> College<span style="color:#ff8800"> Course</span> Counts</td>
+    {% for abbrev, name in year %}
+    <p><a href="/year/{{ abbrev }}"> {{ name }} </a></p>
+    {% endfor %}
+        </center>
+</body>
+</html>
