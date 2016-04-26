@@ -11,23 +11,12 @@ header {
 nav {
     line-height:30px;
     background-color:#eeeeee;
-    height:300px;
+    height:100%;
     width:100px;
     float:left;
     padding:5px;
 }
-section {
-    height: 300px;
-    float:left;
-    padding:10px;
-}
-footer {
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
-    padding:5px;
-}
+
 </style>
 </head>
 <body>
@@ -38,8 +27,8 @@ footer {
 
 <nav><center>
     <a href="/">Back Home</a>
-    <a href="http://www.oxy.edu/">Official Site</a><br>
-    <a href="https://www.facebook.com/occidental/">Facebook Page</a><br>
+    <a href="http://www.oxy.edu/">Official Site</a>
+    <a href="https://www.facebook.com/occidental/">Facebook Page</a>
     <a href="https://www.instagram.com/occidentalcollege/">Instagram</a></center></nav>
 
 <section><center>{% for abbrev, name in departments %}
@@ -47,8 +36,6 @@ footer {
         {% endfor %}</center>
 </section>
 
-<footer>
-Website designed by Leah, David, Julia, Sammy</footer>
 
 </body>
 </html>
