@@ -6,41 +6,33 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <style>
-br {text-transform: capitalize;
-    font-size: 150%
-    }
+    tr:nth-child(even) {background-color:#FFC38F;}
 
-table, th, td {border: 1px solid black;
-    text-transform: capitalize;
+br {text-transform: capitalize; font-size: 150%}
+
+table, th, td {border: 1px solid black;text-transform: capitalize;
     border-collapse: collapse;}
-    th, td {padding: 5px;}
-</style>
-<body>
-<center>You are looking at classes in the <br>
-    <b> {{ depart }} Department in {{years}}</b></br>
-</center>
 
-<style>
-    tr:nth-child(even) {
-    background-color:#FFC38F;
-}
+th, td {padding: 5px;}
 </style>
+<body><center>You are looking at classes in the <br>
+    <b> {{ depart }} Department in {{years}}</b></br></center>
+
 <table style="width:100%">
     <tr><center>
         <th width="10%">Course</th>
         <th width="5%">Semester</th>
-        <th>Title</th>
+        <th width="30%">Title</th>
         <th width="5%">Section</th>
         <th width="5%">Units</th>
         <th width="15%">Professor</th>
         <th>Meeting Times</th>
     </center></tr>
-<center>
-    <a href="/department/AMST/{{years}}/spring">Spring</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/department/AMST/{{years}}/fall">Fall</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/department/AMST/{{years}}/summer">Summer</a>&nbsp;&nbsp;&nbsp;&nbsp;</center>
 
-
+    <center>
+    <a href="/department/{{full}}/{{years}}/spring">Spring</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/{{years}}/fall">Fall</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/{{years}}/summer">Summer</a>&nbsp;&nbsp;&nbsp;&nbsp;</center>
 
     {% for class in cursem %}
     <tr>
@@ -52,6 +44,6 @@ table, th, td {border: 1px solid black;
         <td><center>{{class.instructors}}</center></td>
         <td><center>{{class.meetings}}</center></td>
 
-        {% endfor %}</tr></table>
-</body>
-</html>
+        {% endfor %}
+
+    </tr></table></body></html>

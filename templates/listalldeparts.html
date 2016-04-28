@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<title>Departments</title>
+
+<body style="margin: 8px; padding: 0px; font-family: 'Georgia',georgia;">
+<table width="100%" style="height: 100%;" cellpadding="10" cellspacing="0" border="0">
+
+<!-- ============ HEADER SECTION ============== -->
+
+<img src="http://i67.tinypic.com/zn4oit.jpg" height="150" width= 100%/>
+<td colspan="2" style="height: 90px;" bgcolor="#000000">
+<h1><center><font color="white">Occidental College Department List</font></center></h1></td></tr>
+
+<!-- ============ LEFT COLUMN (MENU) ============== -->
+
+<td width="15%" valign="top" bgcolor="#eeeeee">
+    <center><a href="/">Back Home</a><p>
+    <a href="http://www.oxy.edu/">Official Page</a><p>
+    <a href="http://www.counts.oxy.edu/">Official Course Counts</a><p>
+    <a href="https://www.facebook.com/occidental/">Facebook Page</a><p>
+    <a href="https://www.instagram.com/occidentalcollege/">Instagram</a></center>
+    <img style="position:fixed; bottom:10%; left:2%; width:150px;height:150px;
+    "src="https://s.graphiq.com/sites/default/files/10/media/images/Occidental_College_173926.png"></td>
+
+<!-- ============ RIGHT COLUMN (CONTENT) ============== -->
+
+<td width="80%" valign="top" bgcolor="#FFFFFF">
+<h2><center>Departments</center></h2>
+<center>
+    {% for abbrev, name in departments %}<p>
+    <a href="/department/{{ abbrev }}"> {{ name }} </a>
+    {% endfor %}</center></td></table></body></html>

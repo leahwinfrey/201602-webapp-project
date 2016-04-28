@@ -91,22 +91,89 @@ DEPART_ABBREV = {
     'UEP': 'Urban and Environmental Policy',
     'WRD': 'Writing and Rhetoric'}
 
-CORE_ABBREV = {
-    'CPAF': 'Core Africa & The Middle East',
-    'CPAS': 'Core Central/South/East Asia',
-    'CPEU': 'Core Europe',
-    'CPFA': 'Core Fine Arts',
-    'CFAP': 'Core Fine Arts Partial',
-    'CPGC': 'Core Global Connections',
-    'CPIC': 'Core Intercultural',
-    'CPLS': 'Core Labratory Science',
-    'CPLA': 'Core Latin America',
-    'CMSP': 'Core Mathematics/Science Partial',
-    'CPMS': 'Core Mathematics/Science',
-    'CPPE': 'Core Pre-1800',
-    'CPRF': 'Core Regional Focus',
-    'CPUS': 'Core United States',
-    'CPUD': 'Core United States Partial'}
+DEPART_FULL = {
+    'AMST': 'AMST',
+    'ARAB': 'ARAB',
+    'ARTH': 'ARTH',
+    'ARTM': 'ARTM',
+    'ARTS': 'ARTS',
+    'BICH': 'BICH',
+    'BIO': 'BIO',
+    'CHEM': 'CHEM',
+    'CHIN': 'CHIN',
+    'COGS': 'COGS',
+    'CSLC': 'CSLC',
+    'COMP': 'COMP',
+    'CTSJ': 'CTSJ',
+    'CSP': 'CSP',
+    'DWA': 'DWA',
+    'ECON': 'ECON',
+    'EDUC': 'EDUC',
+    'ENGL': 'ENGL',
+    'FREN': 'FREN',
+    'GEO': 'GEO',
+    'GERM': 'GERM',
+    'GRK': 'GRK',
+    'HIST': 'HIST',
+    'JAPN': 'JAPN',
+    'KINE': 'KINE',
+    'LATN': 'LATN',
+    'LLAS': 'LLAS',
+    'LING': 'LING',
+    'MATH': 'MATH',
+    'MUSC': 'MUSC',
+    'MUSA': 'MUSA',
+    'ABAR': 'ABAR',
+    'ABAU': 'ABAU',
+    'ABAS': 'ABAS',
+    'ABBO': 'ABBO',
+    'ABBW': 'ABBW',
+    'ABBR': 'ABBR',
+    'ABCI': 'ABCI',
+    'ABCH': 'ABCH',
+    'ABCR': 'ABCR',
+    'ABCZ': 'ABCZ',
+    'ABDE': 'ABDE',
+    'ABDR': 'ABDR',
+    'ABFR': 'ABFR',
+    'ABGE': 'ABGE',
+    'ABHU': 'ABHU',
+    'ABIC': 'ABIC',
+    'ABIN': 'ABIN',
+    'ABID': 'ABID',
+    'ABIR': 'ABIR',
+    'ABIT': 'ABIT',
+    'ABJA': 'ABJA',
+    'ABJO': 'ABJO',
+    'ABMO': 'ABMO',
+    'ABNZ': 'ABNZ',
+    'ABNI': 'ABNI',
+    'ABPE': 'ABPE',
+    'ABRU': 'ABRU',
+    'ABSM': 'ABSM',
+    'ABSE': 'ABSE',
+    'ABSA': 'ABSA',
+    'ABSP': 'ABSP',
+    'ABSN': 'ABSN',
+    'ABSW': 'ABSW',
+    'ABTN': 'ABTN',
+    'ABNT': 'ABNT',
+    'ABNA': 'ABNA',
+    'ABUA': 'ABUA',
+    'ABUK': 'ABUK',
+    'PHIL': 'PHIL',
+    'PHAC': 'PHAC',
+    'PHYS': 'PHYS',
+    'POLS': 'POLS',
+    'PSYC': 'PSYC',
+    'RELS': 'RELS',
+    'RUSN': 'RUSN',
+    'SOC': 'SOC',
+    'SPAN': 'SPAN',
+    'OXAB': 'OXAB',
+    'THEA': 'THEA',
+    'UEP': 'UEP',
+    'WRD': 'WRD'}
 
 YEAR_ABBREV = {
     '2010': '2010',
@@ -121,8 +188,7 @@ YEAR_ABBREV = {
 SEASONS = {
     'spring': 'spring',
     'fall': 'fall',
-    'summer': 'summer'
-}
+    'summer': 'summer'}
 
 
 class Course:
@@ -159,18 +225,19 @@ def get_data():
 
 @app.route('/')
 def view_homepage():
-    return render_template('base3.html')
-# this will be a list of links where they can click to sort by departments or core or time
+    return render_template('homepage.html')
 
+# List of all departments
 @app.route('/department')
 def view_alldepartment():
     listmajor = []
     for key, value in DEPART_ABBREV.items():
         listmajor.append((key, value))
     listmajor.sort(key=lambda x: x[1])
-    return render_template('department3.html', departments=listmajor)
+    return render_template('listalldeparts.html', departments=listmajor)
 
 
+# List of all classes offered in specific department
 @app.route('/department/<abbrev>')
 def view_department(abbrev):
     allcourses = get_data()
@@ -180,83 +247,24 @@ def view_department(abbrev):
         current = allcourses[x]
         if current.department == abbrev:
             offeredclasses.append(current)
-    return render_template('classes.html', abbrev=offeredclasses, department=DEPART_ABBREV[abbrev])
-
-""" #Core classes aren't listed in TSV file
-@app.route('/core')
-def view_core():
-    listcore = []
-    for key,value in CORE_ABBREV.items():
-        listcore.append((key, value))
-    return render_template('core.html', core=sorted(listcore))
-
-@app.route('/core/<abbrevcore>')
-def view_core2(abbrevcore):
-    allcourses2 = get_data()
-    length = len(allcourses2)
-    offered = []
-    for x in range(0, length):
-        current = allcourses2[x]
-        if current.core == abbrevcore:
-            offered.append(current)
-    return render_template('coreclasses.html', abrevcore=offered, core=CORE_ABBREV[abbrevcore])
-"""
+    return render_template('listdepartmentclasses.html', abbrev=offeredclasses, department=DEPART_ABBREV[abbrev],
+                           full=DEPART_FULL[abbrev])
 
 
-@app.route('/year')
-def view_year():
-    listyear = []
-    for key,value in YEAR_ABBREV.items():
-        listyear.append((key, value))
-    return render_template('year3.html', year=sorted(listyear))
-
-
-@app.route('/year/<specyear>')
-def view_year2(specyear):
-    allcourses = get_data()
-    length = len(allcourses)
-    yearclass = []
-    for x in range(0, length):
-        current = allcourses[x]
-        if current.year == specyear:
-            yearclass.append(current)
-    return render_template('specyear3.html', specyear=yearclass, years=YEAR_ABBREV[specyear])
-
-
-@app.route('/year/<specyear>/<semester>')
-def view_year3(specyear, semester):
-    allcourses = get_data()
-    length = len(allcourses)
-    yearsem = []
-    for x in range(0, length):
-        current = allcourses[x]
-        if current.year == specyear and current.season == semester:
-            yearsem.append(current)
-    return render_template('semester.html', cursem=yearsem, years=YEAR_ABBREV[specyear], season=SEASONS[semester])
-
-@app.route('/year/<specyear>/all')
-def view_year4(specyear):
-    allcourses = get_data()
-    length = len(allcourses)
-    allyear = []
-    for x in range(0, length):
-        current = allcourses[x]
-        if current.year == specyear:
-            allyear.append(current)
-    return render_template('allyear.html', cursem=allyear, years=YEAR_ABBREV[specyear])
-
-@app.route('/department/<specdepart>/<specyear>')
-def view_classesperyear(specdepart, specyear):
+# List of all classes offered in specific department by year
+@app.route('/department/<abbrev>/<specyear>')
+def view_classesperyear(abbrev, specyear):
     allcourses = get_data()
     length = len(allcourses)
     departyear = []
     for x in range(0, length):
         current = allcourses[x]
-        if current.year == specyear and current.department == specdepart:
+        if current.year == specyear and current.department == abbrev:
             departyear.append(current)
-    return render_template('departyear.html', cursem=departyear, years=YEAR_ABBREV[specyear],
-                           depart=DEPART_ABBREV[specdepart])
+    return render_template('listdepartmentbyear.html', cursem=departyear, years=YEAR_ABBREV[specyear],
+                           depart=DEPART_ABBREV[abbrev], full=DEPART_FULL[abbrev])
 
+# List of all classes offered in specific department by year and semester
 @app.route('/department/<specdepart>/<specyear>/<specsem>')
 def view_classessemyear(specdepart, specyear, specsem):
     allcourses = get_data()
@@ -266,24 +274,57 @@ def view_classessemyear(specdepart, specyear, specsem):
         current = allcourses[x]
         if current.year == specyear and current.department == specdepart and current.season == specsem:
             departyearsem.append(current)
-    return render_template('departyearsem.html', cursem=departyearsem, years=YEAR_ABBREV[specyear],
+    return render_template('listdepartmentsbyearsem.html', cursem=departyearsem, years=YEAR_ABBREV[specyear],
     depart=DEPART_ABBREV[specdepart], specsem=SEASONS[specsem])
 
-"""
-@app.route('/year/<specyear>/<specdepart>')
-def view_yeardeparts(specyear, specdepart):
+# List of years
+@app.route('/year')
+def view_year():
+    listyear = []
+    for key,value in YEAR_ABBREV.items():
+        listyear.append((key, value))
+    return render_template('listyears.html', year=sorted(listyear))
+
+# List of years with option to choose semester
+@app.route('/year/<specyear>')
+def view_year2(specyear):
     allcourses = get_data()
     length = len(allcourses)
-    yeardepart = []
+    yearclass = []
     for x in range(0, length):
         current = allcourses[x]
-        if current.year == specyear and current.department == specdepart:
-            yeardepart.append(current)
-    return render_template('yeardeparts.html', cursem=yeardepart, years=YEAR_ABBREV[specyear],
-                           depart=DEPART_ABBREV[specdepart])
-"""
+        if current.year == specyear:
+            yearclass.append(current)
+    return render_template('listyearsemoption.html', specyear=yearclass, years=YEAR_ABBREV[specyear])
 
 
+# List of all classes offered that year
+@app.route('/year/<specyear>/all')
+def view_year4(specyear):
+    allcourses = get_data()
+    length = len(allcourses)
+    allyear = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == specyear:
+            allyear.append(current)
+    return render_template('allofferedbyear.html', cursem=allyear, years=YEAR_ABBREV[specyear])
+
+
+# List of all classes offered in semester of that year
+@app.route('/year/<specyear>/<semester>')
+def view_year3(specyear, semester):
+    allcourses = get_data()
+    length = len(allcourses)
+    yearsem = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == specyear and current.season == semester:
+            yearsem.append(current)
+    return render_template('listofferedbysemester.html', cursem=yearsem, years=YEAR_ABBREV[specyear], season=SEASONS[semester])
+
+
+# List of classes ex: 2011 fall AMST
 @app.route('/year/<specyear>/<specsem>/<specdepart>')
 def view_yeardepartsem(specyear, specsem, specdepart):
     allcourses = get_data()
@@ -293,11 +334,10 @@ def view_yeardepartsem(specyear, specsem, specdepart):
         current = allcourses[x]
         if current.year == specyear and current.department == specdepart and current.season == specsem:
             yeardepsem.append(current)
-    return render_template('yeardepartsem.html', cursem=yeardepsem, years=YEAR_ABBREV[specyear],
+    return render_template('listyearsemesterdepartment.html', cursem=yeardepsem, years=YEAR_ABBREV[specyear],
                            depart=DEPART_ABBREV[specdepart], specsem=SEASONS[specsem])
 
 
-@app.route('/year/<specyear>/<specdepart>/<specsem>')
 
 
 

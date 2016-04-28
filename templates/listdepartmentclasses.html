@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ department }}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<style>
+    tr:nth-child(even) {background-color:#FFC38F;}
+
+    br {text-transform: capitalize;
+    font-size: 150%}
+
+    table, th, td {border: 1px solid black; text-transform: capitalize;
+    border-collapse: collapse;}
+
+    th, td {padding: 5px;}</style>
+<body><table><center>You are looking at classes in the <br>
+    <b>{{department}} Department</b></br>
+
+    <table style="width:100%">
+    <tr>
+        <th width="10%">Year & Sem Offered</th>
+        <th width="25%">Title</th>
+        <th width="9%">Course</th>
+        <th width="5%">Section</th>
+        <th width="5%">Units</th>
+        <th width="20%">Professor</th>
+        <th>Meeting Times</th></tr>
+<center>
+    <a href="/department/{{full}}/2010">2010</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/2011">2011</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/2012">2012</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/2013">2013</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/2014">2014</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/2015">2015</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/2016">2016</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/{{full}}/2017">2017</a></center>
+
+    {%for class in abbrev %}
+<tr>
+        <td><center>{{class.year}} {{class.season}} </center></td>
+        <td>{{class.title}}</td>
+        <td><center>{{class.department}} {{class.number}}</center></td>
+        <td><center>{{class.section}}</center></td>
+        <td><center>{{class.unit}}</center></td>
+        <td><center>{{class.instructors}}</center></td>
+        <td><center>{{class.meetings}}</center></td>
+        {% endfor %}
+
+</tr></table></center></table></body></html>
