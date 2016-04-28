@@ -2,10 +2,11 @@
 <html lang="en">
 <head><meta charset="UTF-8"><link rel="stylesheet" href="/css/styles.css">
 
-<title>{{ depart }} {{years}}</title></head>
+<title>{{ depart }} {{years}} {{specsem}}</title></head>
 
 <style>
     tr:nth-child(even) {background-color:#FFC38F;}
+    p {text-transform: capitalize}
 
     br {text-transform: capitalize; font-size: 150%}
 
@@ -15,7 +16,7 @@
     th, td {padding: 5px;}</style>
 <body>
 <center>You are looking at classes offered in the <br>
-    <b>{{ depart }} Department </b><br>
+    <b>{{ depart }} Department </b><p>
     <b>{{years}} {{specsem}} Semester</b></center>
 
 <table style="width:100%">
