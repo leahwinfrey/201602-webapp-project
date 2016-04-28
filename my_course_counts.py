@@ -245,6 +245,60 @@ def view_year4(specyear):
             allyear.append(current)
     return render_template('allyear.html', cursem=allyear, years=YEAR_ABBREV[specyear])
 
+@app.route('/department/<specdepart>/<specyear>')
+def view_classesperyear(specdepart, specyear):
+    allcourses = get_data()
+    length = len(allcourses)
+    departyear = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == specyear and current.department == specdepart:
+            departyear.append(current)
+    return render_template('departyear.html', cursem=departyear, years=YEAR_ABBREV[specyear],
+                           depart=DEPART_ABBREV[specdepart])
+
+@app.route('/department/<specdepart>/<specyear>/<specsem>')
+def view_classessemyear(specdepart, specyear, specsem):
+    allcourses = get_data()
+    length = len(allcourses)
+    departyearsem = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == specyear and current.department == specdepart and current.season == specsem:
+            departyearsem.append(current)
+    return render_template('departyearsem.html', cursem=departyearsem, years=YEAR_ABBREV[specyear],
+    depart=DEPART_ABBREV[specdepart], specsem=SEASONS[specsem])
+
+"""
+@app.route('/year/<specyear>/<specdepart>')
+def view_yeardeparts(specyear, specdepart):
+    allcourses = get_data()
+    length = len(allcourses)
+    yeardepart = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == specyear and current.department == specdepart:
+            yeardepart.append(current)
+    return render_template('yeardeparts.html', cursem=yeardepart, years=YEAR_ABBREV[specyear],
+                           depart=DEPART_ABBREV[specdepart])
+"""
+
+
+@app.route('/year/<specyear>/<specsem>/<specdepart>')
+def view_yeardepartsem(specyear, specsem, specdepart):
+    allcourses = get_data()
+    length = len(allcourses)
+    yeardepsem = []
+    for x in range(0, length):
+        current = allcourses[x]
+        if current.year == specyear and current.department == specdepart and current.season == specsem:
+            yeardepsem.append(current)
+    return render_template('yeardepartsem.html', cursem=yeardepsem, years=YEAR_ABBREV[specyear],
+                           depart=DEPART_ABBREV[specdepart], specsem=SEASONS[specsem])
+
+
+@app.route('/year/<specyear>/<specdepart>/<specsem>')
+
 
 
 # The functions below lets you access files in the css, js, and images folders.

@@ -5,8 +5,14 @@
     <title>{{ department }}</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+<style>
+    tr:nth-child(even) {
+    background-color:#FAB273;
+}
+</style>
 
 <style>
+
     p {text-transform: capitalize;
     font-size: 150%
     }
@@ -28,6 +34,15 @@ table, th, td {border: 1px solid black;
       <th width="20%">Professor</th>
       <th>Meeting Times</th>
   </tr>
+
+    <a href="/department/AMST/2010">2010</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/2010">2011</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/2010">2012</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/2010">2013</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/2010">2014</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/2010">2015</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/2010">2016</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/2010">2017</a>
     {%for class in abbrev %}
     <tr>
         <td><center>{{class.year}} {{class.season}} </center></td>

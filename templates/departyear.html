@@ -2,14 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ years }} {{season}}</title>
+    <title>{{ depart }} {{years}}</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<style>
-    tr:nth-child(even) {
-    background-color:#FAB273;
-}
-</style>
 <style>
 p {text-transform: capitalize;
     font-size: 150%
@@ -21,21 +16,35 @@ table, th, td {border: 1px solid black;
     th, td {padding: 5px;}
 </style>
 <body>
-<center>You are looking at classes offered in the <p>
-    {{years}} {{season}} Semester</p>
+<center>You are looking at classes offered in the <p> {{ depart }} department in {{years}} </p>
 </center>
+
+<style>
+    tr:nth-child(even) {
+    background-color:#FAB273;
+}
+</style>
 <table style="width:100%">
     <tr><center>
         <th width="10%">Course</th>
+        <th width="5%">Semester</th>
         <th>Title</th>
         <th width="5%">Section</th>
         <th width="5%">Units</th>
         <th width="15%">Professor</th>
         <th>Meeting Times</th>
     </center></tr>
-    {%for class in cursem %}
+<center>
+    <a href="/department/AMST/{{years}}/spring">Spring</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/{{years}}/fall">Fall</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/department/AMST/{{years}}/summer">Summer</a>&nbsp;&nbsp;&nbsp;&nbsp;</center>
+
+
+
+    {% for class in cursem %}
     <tr>
-        <td><center><a href="/department/{{class.department}}/{{class.year}}">{{class.department}} {{class.number}}</a></center></td>
+        <td><center>{{class.department}} {{class.number}}</center></td>
+        <td><center>{{class.season}}</center></td>
         <td>{{class.title}}</td>
         <td><center>{{class.section}}</center></td>
         <td><center>{{class.unit}}</center></td>
