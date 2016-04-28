@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <style>
+    tr:nth-child(even) {
+    background-color:#FFC38F;
+}
+</style>
+<style>
 br {text-transform: capitalize;
     font-size: 150%
     }
@@ -16,15 +21,9 @@ table, th, td {border: 1px solid black;
     th, td {padding: 5px;}
 </style>
 <body>
-<center>You are looking at classes in the <br>
-    <b> {{ depart }} Department in {{years}}</b></br>
+<center>You are looking at classes offered in the <br> <b>{{ depart }} Department </b> <p>
+    {{years}} {{specsem}} Semester
 </center>
-
-<style>
-    tr:nth-child(even) {
-    background-color:#FFC38F;
-}
-</style>
 <table style="width:100%">
     <tr><center>
         <th width="10%">Course</th>
@@ -35,13 +34,6 @@ table, th, td {border: 1px solid black;
         <th width="15%">Professor</th>
         <th>Meeting Times</th>
     </center></tr>
-<center>
-    <a href="/department/AMST/{{years}}/spring">Spring</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/department/AMST/{{years}}/fall">Fall</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/department/AMST/{{years}}/summer">Summer</a>&nbsp;&nbsp;&nbsp;&nbsp;</center>
-
-
-
     {% for class in cursem %}
     <tr>
         <td><center>{{class.department}} {{class.number}}</center></td>
