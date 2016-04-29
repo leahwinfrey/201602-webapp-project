@@ -19,7 +19,98 @@
 </style><body>
 
 <center>You are looking at classes offered in the
-    <p><b>{{years}} {{season}} Semester</b></p></center>
+    <p><b>{{years}} {{season}} Semester</b></p>
+
+    <select size="1" name="links" onchange="window.location.href=this.value;">
+        <option value="/year/{{years}}/{{season}}">Classes in {{years}} {{season}} Semester by Department</option>
+        <option value="/department/AMST/{{years}}/{{season}}">American Studies</option>
+        <option value="/department/ARAB/{{years}}/{{season}}">Arabic</option>
+        <option value="/department/ARTH/{{years}}/{{season}}" >Art History and Visual Arts/Art History</option>
+        <option value="/department/ARTM/{{years}}/{{season}}" >Art History and Visual Arts/Media Arts and Culture</option>
+        <option value="/department/ARTS/{{years}}/{{season}}" >Art History and Visual Arts/Studio Art</option>
+        <option value="/department/BICH/{{years}}/{{season}}" >Biochemistry</option>
+        <option value="/department/BIO/{{years}}/{{season}}" >Biology</option>
+        <option value="/department/CHEM/{{years}}/{{season}}" >Chemistry</option>
+        <option value="/department/CHIN/{{years}}/{{season}}" >Chinese</option>
+        <option value="/department/CLAS/{{years}}/{{season}}" >Classical Studies</option>
+        <option value="/department/COGS/{{years}}/{{season}}" >Cognitive Science</option>
+        <option value="/department/COMP/{{years}}/{{season}}" >Computer Science</option>
+        <option value="/department/CSLC/{{years}}/{{season}}" >Comparative Studies in Literature and Culture</option>
+        <option value="/department/CSP/{{years}}/{{season}}" >Cultural Studies Program</option>
+        <option value="/department/CTSJ/{{years}}/{{season}}" >Critical Theory and Social Justice</option>
+        <option value="/department/DWA/{{years}}/{{season}}" >Diplomacy and World Affairs</option>
+        <option value="/department/ECLS/{{years}}/{{season}}" >English and Comparative Literary Studies</option>
+        <option value="/department/ECON/{{years}}/{{season}}" >Economics</option>
+        <option value="/department/EDUC/{{years}}/{{season}}" >Education</option>
+        <option value="/department/ENGL/{{years}}/{{season}}" >English</option>
+        <option value="/department/ENWR/{{years}}/{{season}}" >English Writing</option>
+        <option value="/department/FREN/{{years}}/{{season}}" >French</option>
+        <option value="/department/GEO/{{years}}/{{season}}" >Geology</option>
+        <option value="/department/GERM/{{years}}/{{season}}" >German</option>
+        <option value="/department/GRK/{{years}}/{{season}}" >Greek</option>
+        <option value="/department/HIST/{{years}}/{{season}}" >History</option>
+        <option value="/department/JAPN/{{years}}/{{season}}" >Japanese</option>
+        <option value="/department/KINE/{{years}}/{{season}}" >Kinesiology</option>
+        <option value="/department/LANG/{{years}}/{{season}}" >Language</option>
+        <option value="/department/LATN/{{years}}/{{season}}" >Latin</option>
+        <option value="/department/LING/{{years}}/{{season}}" >Linguistics</option>
+        <option value="/department/LLAS/{{years}}/{{season}}" >Latino/a and Latin American Studies</option>
+        <option value="/department/MATH/{{years}}/{{season}}" >Mathematics</option>
+        <option value="/department/MUSA/{{years}}/{{season}}" >Music Applied Study</option>
+        <option value="/department/MUSC/{{years}}/{{season}}" >Music</option>
+        <option value="/department/ABAR/{{years}}/{{season}}" >Occidental-in-Argentina</option>
+        <option value="/department/ABAS/{{years}}/{{season}}" >Occidental-in-Austria</option>
+        <option value="/department/ABAU/{{years}}/{{season}}" >Occidental-in-Australia</option>
+        <option value="/department/ABBO/{{years}}/{{season}}" >Occidental-in-Bolivia</option>
+        <option value="/department/ABBR/{{years}}/{{season}}" >Occidental-in-Brazil</option>
+        <option value="/department/ABBW/{{years}}/{{season}}" >Occidental-in-Botswana</option>
+        <option value="/department/ABCH/{{years}}/{{season}}" >Occidental-in-China</option>
+        <option value="/department/ABCI/{{years}}/{{season}}" >Occidental-in-Chile</option>
+        <option value="/department/ABCR/{{years}}/{{season}}" >Occidental-in-Costa Rica</option>
+        <option value="/department/ABCZ/{{years}}/{{season}}" >Occidental-in-the-Czech Republic</option>
+        <option value="/department/ABDE/{{years}}/{{season}}" >Occidental-in-Denmark</option>
+        <option value="/department/ABDR/{{years}}/{{season}}" >Occidental-in-the-Dominican Republic</option>
+        <option value="/department/ABFR/{{years}}/{{season}}" >Occidental-in-France</option>
+        <option value="/department/ABGE/{{years}}/{{season}}" >Occidental-in-Germany</option>
+        <option value="/department/ABHU/{{years}}/{{season}}" >Occidental-in-Hungary</option>
+        <option value="/department/ABIC/{{years}}/{{season}}" >Occidental-in-Iceland </option>
+        <option value="/department/ABID/{{years}}/{{season}}" >Occidental-in-Indonesia (ABID)</option>
+        <option value="/department/ABIN/{{years}}/{{season}}" >Occidental-in-India</option>
+        <option value="/department/ABIR/{{years}}/{{season}}" >Occidental-in-Ireland (ABIR)</option>
+        <option value="/department/ABIT/{{years}}/{{season}}" >Occidental-in-Italy (ABIT)</option>
+        <option value="/department/ABJA/{{years}}/{{season}}" >Occidental-in-Japan (ABJA)</option>
+        <option value="/department/ABJO/{{years}}/{{season}}" >Occidental-in-Jordan (ABJO)</option>
+        <option value="/department/ABMO/{{years}}/{{season}}" >Occidental-in-Morocco (ABMO)</option>
+        <option value="/department/ABNA/{{years}}/{{season}}" >Occidental-in-the-Netherlands Antilles (ABNA)</option>
+        <option value="/department/ABNI/{{years}}/{{season}}" >Occidental-in-Nicaragua (ABNI)</option>
+        <option value="/department/ABNT/{{years}}/{{season}}" >Occidental-in-the-Netherlands (ABNT)</option>
+        <option value="/department/ABNZ/{{years}}/{{season}}" >Occidental-in-New Zealand (ABNZ)</option>
+        <option value="/department/ABPE/{{years}}/{{season}}" >Occidental-in-Peru (ABPE)</option>
+        <option value="/department/ABRU/{{years}}/{{season}}" >Occidental-in-Russia (ABRU)</option>
+        <option value="/department/ABSA/{{years}}/{{season}}" >Occidental-in-South Africa</option>
+        <option value="/department/ABSE/{{years}}/{{season}}" >Occidental-in-Senegal</option>
+        <option value="/department/ABSE/{{years}}/{{season}}" >Occidental-in-Senegal</option>
+        <option value="/department/ABSM/{{years}}/{{season}}" >Occidental-in-Samoa</option>
+        <option value="/department/ABSN/{{years}}/{{season}}" >Occidental-in-Sweden</option>
+        <option value="/department/ABSP/{{years}}/{{season}}" >Occidental-in-Spain</option>
+        <option value="/department/ABSW/{{years}}/{{season}}" >Occidental-in-Switzerland</option>
+        <option value="/department/ABTN/{{years}}/{{season}}" >Occidental-in-Taiwan</option>
+        <option value="/department/ABUA/{{years}}/{{season}}" >Occidental-in-the-United Arab Emirates</option>
+        <option value="/department/ABUK/{{years}}/{{season}}" >Occidental-in-the-United Kingdom</option>
+        <option value="/department/PHAC/{{years}}/{{season}}" >Physical Activities</option>
+        <option value="/department/PHIL/{{years}}/{{season}}" >Philosophy</option>
+        <option value="/department/PHYS/{{years}}/{{season}}" >Physics</option>
+        <option value="/department/POLS/{{years}}/{{season}}" >Politics</option>
+        <option value="/department/PSYC/{{years}}/{{season}}" >Psychology</option>
+        <option value="/department/RELS/{{years}}/{{season}}" >Religious Studies</option>
+        <option value="/department/RUSN/{{years}}/{{season}}" >Russian</option>
+        <option value="/department/SOC/{{years}}/{{season}}" >Sociology</option>
+        <option value="/department/SPAN/{{years}}/{{season}}" >Spanish and French Studies</option>
+        <option value="/department/THEA/{{years}}/{{season}}" >Theater</option>
+        <option value="/department/UEP/{{years}}/{{season}}" >Urban and Environmental Policy</option>
+        <option value="/department/WRD/{{years}}/{{season}}" >Writing and Rhetoric</option>
+</select><p>
+</center>
 
 <table style="width:100%">
     <tr><center>
@@ -31,9 +122,7 @@
         <th>Meeting Times</th></center></tr>
 
     {%for class in cursem %}<tr>
-        <td><center>
-            <a href="/department/{{class.department}}/{{class.year}}/{{class.season}}">
-                {{class.department}} {{class.number}}</a></center></td>
+        <td><center>{{class.department}} {{class.number}}</center></td>
         <td>{{class.title}}</td>
         <td><center>{{class.section}}</center></td>
         <td><center>{{class.unit}}</center></td>

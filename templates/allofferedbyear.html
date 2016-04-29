@@ -1,12 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>{{ years }}{{season}}</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
-<center>All Classes Offered in <b>{{years}}</b><br></center>
+<center>All Classes Offered in <b>{{years}}</b><br>
+    <select size="1" name="links" onchange="window.location.href=this.value;">
+        <option value="/year/{{years}}/all">Classes in {{years}} by Department</option>
+        <option value="/department/AMST/{{years}}">American Studies</option>
+        <option value="/department/ARAB/{{years}}">Arabic</option>
+        <option value="/department/ARTH/{{years}}" >Art History and Visual Arts/Art History</option>
+        <option value="/department/ARTM/{{years}}" >Art History and Visual Arts/Media Arts and Culture</option>
+        <option value="/department/ARTS/{{years}}" >Art History and Visual Arts/Studio Art</option>
+        <option value="/department/BICH/{{years}}" >Biochemistry</option>
+        <option value="/department/BIO/{{years}}" >Biology</option>
+        <option value="/department/CHEM/{{years}}" >Chemistry</option>
+        <option value="/department/CHIN/{{years}}" >Chinese</option>
+        <option value="/department/CLAS/{{years}}" >Classical Studies</option>
+        <option value="/department/COGS/{{years}}" >Cognitive Science</option>
+        <option value="/department/COMP/{{years}}" >Computer Science</option>
+        <option value="/department/CSLC/{{years}}" >Comparative Studies in Literature and Culture</option>
+        <option value="/department/CSP/{{years}}" >Cultural Studies Program</option>
+        <option value="/department/CTSJ/{{years}}" >Critical Theory and Social Justice</option>
+        <option value="/department/DWA/{{years}}" >Diplomacy and World Affairs</option>
+        <option value="/department/ECLS/{{years}}" >English and Comparative Literary Studies</option>
+        <option value="/department/ECON/{{years}}" >Economics</option>
+        <option value="/department/EDUC/{{years}}" >Education</option>
+        <option value="/department/ENGL/{{years}}" >English</option>
+        <option value="/department/ENWR/{{years}}" >English Writing</option>
+        <option value="/department/FREN/{{years}}" >French</option>
+        <option value="/department/GEO/{{years}}" >Geology</option>
+        <option value="/department/GERM/{{years}}" >German</option>
+        <option value="/department/GRK/{{years}}" >Greek</option>
+        <option value="/department/HIST/{{years}}" >History</option>
+        <option value="/department/JAPN/{{years}}" >Japanese</option>
+        <option value="/department/KINE/{{years}}" >Kinesiology</option>
+        <option value="/department/LANG/{{years}}" >Language</option>
+        <option value="/department/LATN/{{years}}" >Latin</option>
+        <option value="/department/LING/{{years}}" >Linguistics</option>
+        <option value="/department/LLAS/{{years}}" >Latino/a and Latin American Studies</option>
+        <option value="/department/MATH/{{years}}" >Mathematics</option>
+        <option value="/department/MUSA/{{years}}" >Music Applied Study</option>
+        <option value="/department/MUSC/{{years}}" >Music</option>
+        <option value="/department/ABAR/{{years}}" >Occidental-in-Argentina</option>
+        <option value="/department/ABAS/{{years}}" >Occidental-in-Austria</option>
+        <option value="/department/ABAU/{{years}}" >Occidental-in-Australia</option>
+        <option value="/department/ABBO/{{years}}" >Occidental-in-Bolivia</option>
+        <option value="/department/ABBR/{{years}}" >Occidental-in-Brazil</option>
+        <option value="/department/ABBW/{{years}}" >Occidental-in-Botswana</option>
+        <option value="/department/ABCH/{{years}}" >Occidental-in-China</option>
+        <option value="/department/ABCI/{{years}}" >Occidental-in-Chile</option>
+        <option value="/department/ABCR/{{years}}" >Occidental-in-Costa Rica</option>
+        <option value="/department/ABCZ/{{years}}" >Occidental-in-the-Czech Republic</option>
+        <option value="/department/ABDE/{{years}}" >Occidental-in-Denmark</option>
+        <option value="/department/ABDR/{{years}}" >Occidental-in-the-Dominican Republic</option>
+        <option value="/department/ABFR/{{years}}" >Occidental-in-France</option>
+        <option value="/department/ABGE/{{years}}" >Occidental-in-Germany</option>
+        <option value="/department/ABHU/{{years}}" >Occidental-in-Hungary</option>
+        <option value="/department/ABIC/{{years}}" >Occidental-in-Iceland </option>
+        <option value="/department/ABID/{{years}}" >Occidental-in-Indonesia (ABID)</option>
+        <option value="/department/ABIN/{{years}}" >Occidental-in-India</option>
+        <option value="/department/ABIR/{{years}}" >Occidental-in-Ireland (ABIR)</option>
+        <option value="/department/ABIT/{{years}}" >Occidental-in-Italy (ABIT)</option>
+        <option value="/department/ABJA/{{years}}" >Occidental-in-Japan (ABJA)</option>
+        <option value="/department/ABJO/{{years}}" >Occidental-in-Jordan (ABJO)</option>
+        <option value="/department/ABMO/{{years}}" >Occidental-in-Morocco (ABMO)</option>
+        <option value="/department/ABNA/{{years}}" >Occidental-in-the-Netherlands Antilles (ABNA)</option>
+        <option value="/department/ABNI/{{years}}" >Occidental-in-Nicaragua (ABNI)</option>
+        <option value="/department/ABNT/{{years}}" >Occidental-in-the-Netherlands (ABNT)</option>
+        <option value="/department/ABNZ/{{years}}" >Occidental-in-New Zealand (ABNZ)</option>
+        <option value="/department/ABPE/{{years}}" >Occidental-in-Peru (ABPE)</option>
+        <option value="/department/ABRU/{{years}}" >Occidental-in-Russia (ABRU)</option>
+        <option value="/department/ABSA/{{years}}" >Occidental-in-South Africa</option>
+        <option value="/department/ABSE/{{years}}" >Occidental-in-Senegal</option>
+        <option value="/department/ABSE/{{years}}" >Occidental-in-Senegal</option>
+        <option value="/department/ABSM/{{years}}" >Occidental-in-Samoa</option>
+        <option value="/department/ABSN/{{years}}" >Occidental-in-Sweden</option>
+        <option value="/department/ABSP/{{years}}" >Occidental-in-Spain</option>
+        <option value="/department/ABSW/{{years}}" >Occidental-in-Switzerland</option>
+        <option value="/department/ABTN/{{years}}" >Occidental-in-Taiwan</option>
+        <option value="/department/ABUA/{{years}}" >Occidental-in-the-United Arab Emirates</option>
+        <option value="/department/ABUK/{{years}}" >Occidental-in-the-United Kingdom</option>
+        <option value="/department/PHAC/{{years}}" >Physical Activities</option>
+        <option value="/department/PHIL/{{years}}" >Philosophy</option>
+        <option value="/department/PHYS/{{years}}" >Physics</option>
+        <option value="/department/POLS/{{years}}" >Politics</option>
+        <option value="/department/PSYC/{{years}}" >Psychology</option>
+        <option value="/department/RELS/{{years}}" >Religious Studies</option>
+        <option value="/department/RUSN/{{years}}" >Russian</option>
+        <option value="/department/SOC/{{years}}" >Sociology</option>
+        <option value="/department/SPAN/{{years}}" >Spanish and French Studies</option>
+        <option value="/department/THEA/{{years}}" >Theater</option>
+        <option value="/department/UEP/{{years}}" >Urban and Environmental Policy</option>
+        <option value="/department/WRD/{{years}}" >Writing and Rhetoric</option>
+</select><p>
+
 
 <style>
     title {text-transform: capitalize}
@@ -37,9 +127,7 @@ table, th, td {border: 1px solid black; text-transform: capitalize;
     {%for class in cursem %}
     <tr>
         <td><center>{{class.season}}</center></td>
-        <td><center>
-        <a href="/department/{{class.department}}/{{years}}">
-        {{class.department}}</a></center></td>
+        <td><center>{{class.department}}</center></td>
         <td>{{class.title}}</td>
         <td><center>{{class.section}}</center></td>
         <td><center>{{class.unit}}</center></td>
