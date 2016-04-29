@@ -5,28 +5,33 @@
     <title>{{ department }}</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+<body link="black"></body>
 <style>
-    tr:nth-child(even) {background-color:#FFC38F;}
+    tr:nth-child(even) {background-color:#eeeeee;}
+    tr:nth-child(odd) {background-color:#FFC796;}
+
 
     br {text-transform: capitalize;
     font-size: 150%}
 
-    table, th, td {border: 1px solid black; text-transform: capitalize;
+    table, th, td {border: 1px dotted black; text-transform: capitalize;
     border-collapse: collapse;}
 
     th, td {padding: 5px;}</style>
-<body><table><center>You are looking at classes in the <br>
+<body bgcolor="#F2B268"><table><center>You are looking at classes in the <br>
     <b>{{department}} Department</b></br>
 
     <table style="width:100%">
-    <tr>
-        <th width="10%">Year & Sem Offered</th>
-        <th width="25%">Title</th>
-        <th width="9%">Course</th>
-        <th width="5%">Section</th>
-        <th width="5%">Units</th>
+    <tr><center>
+        <th width="9%">Year & Sem Offered</th>
+        <th width="22%">Title</th>
+        <th width="7%">Course</th>
+        <th width="2%">Section</th>
+        <th width="2%">Units</th>
         <th width="20%">Professor</th>
-        <th>Meeting Times</th></tr>
+        <th>Meeting Times</th>
+        <th width="5%">Seats Available</th>
+        <th width="5%">Enrolled</th></center></tr>
 <center>
     <a href="/department/{{full}}/2010">2010</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="/department/{{full}}/2011">2011</a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -46,6 +51,8 @@
         <td><center>{{class.unit}}</center></td>
         <td><center>{{class.instructors}}</center></td>
         <td><center>{{class.meetings}}</center></td>
+        <td><center>{{class.seats}}</center></td>
+        <td><center>{{class.enrolled}}</center></td>
         {% endfor %}
 
 </tr></table></center></table></body></html>

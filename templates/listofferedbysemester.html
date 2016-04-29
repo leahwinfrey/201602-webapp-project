@@ -5,20 +5,22 @@
     <title>{{ years }} {{season}}</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+<body link="black"></body>
 <style>
     title {text-transform: capitalize}
-    tr:nth-child(even) {background-color:#FAB273;}
+    tr:nth-child(even) {background-color:#eeeeee;}
+    tr:nth-child(odd) {background-color:#FFC796;}
     p {text-transform: capitalize}
     br {text-transform: capitalize}
 
-    table, th, td {border: 1px solid black;
+    table, th, td {border: 1px dotted black;
     text-transform: capitalize;
     border-collapse: collapse;}
 
     th, td {padding: 5px;}
 </style><body>
 
-<center>You are looking at classes offered in the
+<body bgcolor="F2B268"><center>You are looking at classes offered in the
     <p><b>{{years}} {{season}} Semester</b></p>
 
     <select size="1" name="links" onchange="window.location.href=this.value;">
@@ -32,18 +34,14 @@
         <option value="/department/BIO/{{years}}/{{season}}" >Biology</option>
         <option value="/department/CHEM/{{years}}/{{season}}" >Chemistry</option>
         <option value="/department/CHIN/{{years}}/{{season}}" >Chinese</option>
-        <option value="/department/CLAS/{{years}}/{{season}}" >Classical Studies</option>
         <option value="/department/COGS/{{years}}/{{season}}" >Cognitive Science</option>
         <option value="/department/COMP/{{years}}/{{season}}" >Computer Science</option>
-        <option value="/department/CSLC/{{years}}/{{season}}" >Comparative Studies in Literature and Culture</option>
         <option value="/department/CSP/{{years}}/{{season}}" >Cultural Studies Program</option>
         <option value="/department/CTSJ/{{years}}/{{season}}" >Critical Theory and Social Justice</option>
         <option value="/department/DWA/{{years}}/{{season}}" >Diplomacy and World Affairs</option>
-        <option value="/department/ECLS/{{years}}/{{season}}" >English and Comparative Literary Studies</option>
         <option value="/department/ECON/{{years}}/{{season}}" >Economics</option>
         <option value="/department/EDUC/{{years}}/{{season}}" >Education</option>
         <option value="/department/ENGL/{{years}}/{{season}}" >English</option>
-        <option value="/department/ENWR/{{years}}/{{season}}" >English Writing</option>
         <option value="/department/FREN/{{years}}/{{season}}" >French</option>
         <option value="/department/GEO/{{years}}/{{season}}" >Geology</option>
         <option value="/department/GERM/{{years}}/{{season}}" >German</option>
@@ -114,20 +112,26 @@
 
 <table style="width:100%">
     <tr><center>
-        <th width="10%">Course</th>
-        <th>Title</th>
-        <th width="5%">Section</th>
-        <th width="5%">Units</th>
-        <th width="15%">Professor</th>
-        <th>Meeting Times</th></center></tr>
+        <th width="9%">Year & Sem Offered</th>
+        <th width="22%">Title</th>
+        <th width="7%">Course</th>
+        <th width="2%">Section</th>
+        <th width="2%">Units</th>
+        <th width="20%">Professor</th>
+        <th>Meeting Times</th>
+        <th width="5%">Seats Available</th>
+        <th width="5%">Enrolled</th></center></tr>
 
-    {%for class in cursem %}<tr>
-        <td><center>{{class.department}} {{class.number}}</center></td>
+    {%for class in cursem %}
+    <tr>
+        <td><center>{{class.year}} {{class.season}} </center></td>
         <td>{{class.title}}</td>
+        <td><center>{{class.department}} {{class.number}}</center></td>
         <td><center>{{class.section}}</center></td>
         <td><center>{{class.unit}}</center></td>
         <td><center>{{class.instructors}}</center></td>
         <td><center>{{class.meetings}}</center></td>
+        <td><center>{{class.seats}}</center></td>
+        <td><center>{{class.enrolled}}</center></td></tr>
         {% endfor %}
-
-</tr></table></body></html>
+    </table></body></html>

@@ -3,39 +3,46 @@
 <head><meta charset="UTF-8"><link rel="stylesheet" href="/css/styles.css">
 
 <title>{{ depart }} {{years}} {{specsem}}</title></head>
+<body link="black"></body>
 
 <style>
-    tr:nth-child(even) {background-color:#FFC38F;}
+    tr:nth-child(even) {background-color:#eeeeee;}
+    tr:nth-child(odd) {background-color:#FFC796;}
     p {text-transform: capitalize}
 
     br {text-transform: capitalize; font-size: 150%}
 
-    table, th, td {border: 1px solid black; text-transform: capitalize;
+    table, th, td {border: 1px dotted black; text-transform: capitalize;
     border-collapse: collapse;}
 
     th, td {padding: 5px;}</style>
-<body>
+<body bgcolor="F2B268">
 <center>You are looking at classes offered in the <br>
     <b>{{ depart }} Department </b><p>
     <b>{{years}} {{specsem}} Semester</b></center>
-
 <table style="width:100%">
     <tr><center>
-        <th width="10%">Course</th>
-        <th>Title</th>
-        <th width="5%">Section</th>
-        <th width="5%">Units</th>
-        <th width="15%">Professor</th>
-        <th>Meeting Times</th></center></tr>
+        <th width="9%">Year & Sem Offered</th>
+        <th width="22%">Title</th>
+        <th width="7%">Course</th>
+        <th width="2%">Section</th>
+        <th width="2%">Units</th>
+        <th width="20%">Professor</th>
+        <th>Meeting Times</th>
+        <th width="5%">Seats Available</th>
+        <th width="5%">Enrolled</th></center></tr>
 
     {% for class in cursem %}
     <tr>
-        <td><center>{{class.department}} {{class.number}}</center></td>
+        <td><center>{{class.year}} {{class.season}} </center></td>
         <td>{{class.title}}</td>
+        <td><center>{{class.department}} {{class.number}}</center></td>
         <td><center>{{class.section}}</center></td>
         <td><center>{{class.unit}}</center></td>
         <td><center>{{class.instructors}}</center></td>
         <td><center>{{class.meetings}}</center></td>
+        <td><center>{{class.seats}}</center></td>
+        <td><center>{{class.enrolled}}</center></td>
         {% endfor %}</tr>
 
 </table></body></html>

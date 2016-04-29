@@ -18,18 +18,15 @@
         <option value="/department/BIO/{{years}}" >Biology</option>
         <option value="/department/CHEM/{{years}}" >Chemistry</option>
         <option value="/department/CHIN/{{years}}" >Chinese</option>
-        <option value="/department/CLAS/{{years}}" >Classical Studies</option>
         <option value="/department/COGS/{{years}}" >Cognitive Science</option>
         <option value="/department/COMP/{{years}}" >Computer Science</option>
         <option value="/department/CSLC/{{years}}" >Comparative Studies in Literature and Culture</option>
         <option value="/department/CSP/{{years}}" >Cultural Studies Program</option>
         <option value="/department/CTSJ/{{years}}" >Critical Theory and Social Justice</option>
         <option value="/department/DWA/{{years}}" >Diplomacy and World Affairs</option>
-        <option value="/department/ECLS/{{years}}" >English and Comparative Literary Studies</option>
         <option value="/department/ECON/{{years}}" >Economics</option>
         <option value="/department/EDUC/{{years}}" >Education</option>
         <option value="/department/ENGL/{{years}}" >English</option>
-        <option value="/department/ENWR/{{years}}" >English Writing</option>
         <option value="/department/FREN/{{years}}" >French</option>
         <option value="/department/GEO/{{years}}" >Geology</option>
         <option value="/department/GERM/{{years}}" >German</option>
@@ -37,7 +34,6 @@
         <option value="/department/HIST/{{years}}" >History</option>
         <option value="/department/JAPN/{{years}}" >Japanese</option>
         <option value="/department/KINE/{{years}}" >Kinesiology</option>
-        <option value="/department/LANG/{{years}}" >Language</option>
         <option value="/department/LATN/{{years}}" >Latin</option>
         <option value="/department/LING/{{years}}" >Linguistics</option>
         <option value="/department/LLAS/{{years}}" >Latino/a and Latin American Studies</option>
@@ -103,36 +99,40 @@
     br {text-transform: capitalize;
     font-size: 150%}
 
-    tr:nth-child(even) {
+    tr:nth-child(even) {background-color:#eeeeee;}
+    tr:nth-child(odd) {background-color:#FFC796;}
     background-color:#FFC38F;}
 </style>
 <style>
 
 
-table, th, td {border: 1px solid black; text-transform: capitalize;
+table, th, td {border: 1px dotted black; text-transform: capitalize;
     border-collapse: collapse;}
     th, td {padding: 5px;}
 </style>
-<body>
+<body bgcolor="#F2B268">
 <table style="width:100%">
-    <tr>
-        <th>Semester</th>
-        <th>Department</th>
-        <th>Title</th>
-        <th>Section</th>
-        <th>Units</th>
-        <th>Professor</th>
+     <tr><center>
+        <th width="9%">Sem Offered</th>
+        <th width="22%">Title</th>
+        <th width="7%">Course</th>
+        <th width="2%">Section</th>
+        <th width="2%">Units</th>
+        <th width="20%">Professor</th>
         <th>Meeting Times</th>
-        </tr>
+        <th width="5%">Seats Available</th>
+        <th width="5%">Enrolled</th></center></tr>
     {%for class in cursem %}
     <tr>
-        <td><center>{{class.season}}</center></td>
-        <td><center>{{class.department}}</center></td>
+        <td><center>{{class.season}} </center></td>
         <td>{{class.title}}</td>
+        <td><center>{{class.department}} {{class.number}}</center></td>
         <td><center>{{class.section}}</center></td>
         <td><center>{{class.unit}}</center></td>
         <td><center>{{class.instructors}}</center></td>
         <td><center>{{class.meetings}}</center></td>
+        <td><center>{{class.seats}}</center></td>
+        <td><center>{{class.enrolled}}</center></td>
         {% endfor %}</tr></table>
 </body>
 </html>

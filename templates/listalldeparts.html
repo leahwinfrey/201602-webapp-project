@@ -1,8 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+<body link="black">
 <title>Departments</title>
 
-<body style="margin: 8px; padding: 0px; font-family: 'Georgia',georgia;">
+<body style="margin: 8px; padding: 0px; font-family: 'Georgia',georgia;  background: #FFC380">
+
+
 <table width="100%" style="height: 100%;" cellpadding="10" cellspacing="0" border="0">
 
 <!-- ============ HEADER SECTION ============== -->
@@ -13,7 +16,7 @@
 
 <!-- ============ LEFT COLUMN (MENU) ============== -->
 
-<td width="15%" valign="top" bgcolor="#eeeeee">
+<td width="15%" valign="top" bgcolor="#DBDBDB">
     <center><a href="/">Back Home</a><p>
     <a href="http://www.oxy.edu/">Official Page</a><p>
     <a href="http://counts.oxy.edu/">Official Course Counts</a><p>
@@ -24,9 +27,12 @@
 
 <!-- ============ RIGHT COLUMN (CONTENT) ============== -->
 
-<td width="80%" valign="top" bgcolor="#FFFFFF">
+<td width="80%" valign="top" bgcolor="#F2B268">
 <h2><center>Departments</center></h2>
 <center>
     {% for abbrev, name in departments %}<p>
     <a href="/department/{{ abbrev }}"> {{ name }} </a>
-    {% endfor %}</center></td></table></body></html>
+    {% endfor %}</center></td></table>
+
+
+</body></html>

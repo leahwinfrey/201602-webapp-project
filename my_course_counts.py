@@ -337,10 +337,6 @@ def view_yeardepartsem(specyear, specsem, specdepart):
     return render_template('listyearsemesterdepartment.html', cursem=yeardepsem, years=YEAR_ABBREV[specyear],
                            depart=DEPART_ABBREV[specdepart], specsem=SEASONS[specsem])
 
-
-
-
-
 # The functions below lets you access files in the css, js, and images folders.
 # You should not change them unless you know what you are doing.
 

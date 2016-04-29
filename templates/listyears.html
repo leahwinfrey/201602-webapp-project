@@ -1,9 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html><head><title>Years Available</title></head>
+<body link="black">
 
-<body style="margin: 8px; padding: 0px; font-family: 'Georgia',georgia;">
-<table width="100%" style="height: 100%;" cellpadding="10" cellspacing="0" border="0">
+<body style="margin: 8px; padding: 0px; font-family: 'Georgia',georgia;  background: #FFC380">
+<style>footer {
+   position: relative;
+   bottom: 15px;
+   width: 100%; height: 30px;
+   background: #000000;
+
+}</style>
+
+<table width="100%" style="height: 73%;" cellpadding="10" cellspacing="0" border="0">
 <tr>
 
 <!-- ============ HEADER SECTION ============== -->
@@ -12,16 +21,16 @@
 </header>
 
 <td colspan="2" style="height: 90;" bgcolor="#000000">
-<h1><center><font color="white">Occidental College Courses by Year</font></center></h1>
+<h1><center><font color="white">Occidental College Years Available</font></center></h1>
 </td></tr>
 
 
 <!-- ============ LEFT COLUMN (MENU) ============== -->
 
-<td positon="fixed" width="15%" valign="top" bgcolor="#eeeeee">
+<td width="15%" valign="top" bgcolor="#DBDBDB">
     <center><a href="/">Back Home</a><p>
-    <a href="http://www.oxy.edu/">Official Site</a><p>
-    <a href="https://counts.oxy.edu">Offical Course Counts</a><p>
+    <a href="http://www.oxy.edu/">Official Page</a><p>
+    <a href="https://counts.oxy.edu">Official Course Counts</a><p>
     <a href="https://www.facebook.com/occidental/">Facebook Page</a><p>
     <a href="https://www.instagram.com/occidentalcollege/">Instagram</a></center>
     <img style="position:fixed; bottom:10%; left:2%; width:150px; height:150px;
@@ -29,10 +38,13 @@
 </td>
 
 <!-- ============ RIGHT COLUMN (CONTENT) ============== -->
-<td width="80%" valign="top" bgcolor="#FFFFFF">
+<td width="80%" valign="top" bgcolor="#F2B268">
 <h2><center>Select a Year</center></h2>
     <center>{% for abbrev, name in year %}<p>
     <a href="/year/{{ abbrev }}"> {{ name }} </a>
     {% endfor %}</center></td>
 
-</table></body></html>
+</table>
+    <footer><font color="white"><center>Website Designed by Leah, Julia, David, Sammy</center></footer>
+
+</body></html>
